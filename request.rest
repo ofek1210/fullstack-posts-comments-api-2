@@ -1,0 +1,97 @@
+### Health
+GET http://localhost:3000/
+
+### Create Post
+POST http://localhost:3000/post
+Content-Type: application/json
+Authorization: Bearer {{ACCESS_TOKEN}}
+
+{
+  "authorId": "PASTE_USER_ID_HERE",
+  "content": "Hello from REST Client"
+}
+
+### Get All Posts
+GET http://localhost:3000/post
+
+### Get Posts By Sender
+GET http://localhost:3000/post?authorId=PASTE_USER_ID_HERE
+
+### Get Post By Id (paste a real id)
+GET http://localhost:3000/post/693f1b7fae921e91db3248b1
+
+### Update Post (paste a real id)
+PUT http://localhost:3000/post/693f1b34ae921e91db3248ac
+Content-Type: application/json
+Authorization: Bearer {{ACCESS_TOKEN}}
+
+{
+  "authorId": "PASTE_USER_ID_HERE",
+  "content": "Updated content"
+}
+
+### Create Comment
+# To get a postId, first run the "Create Post" request. 
+# Then, copy the "_id" value from the response and paste it as the "postId" below.
+POST http://localhost:3000/comment
+Content-Type: application/json
+Authorization: Bearer {{ACCESS_TOKEN}}
+
+{
+  "postId": "PASTE_POST_ID_HERE",
+  "authorId": "PASTE_USER_ID_HERE",
+  "content": "First comment"
+}
+
+### Get All Comments
+GET http://localhost:3000/comment
+
+### Get Comment By Id (paste real id)
+GET http://localhost:3000/comment/PASTE_COMMENT_ID_HERE
+
+### Update Comment (paste real id)
+PUT http://localhost:3000/comment/PASTE_COMMENT_ID_HERE
+Content-Type: application/json
+Authorization: Bearer {{ACCESS_TOKEN}}
+
+{
+  "authorId": "PASTE_USER_ID_HERE",
+  "content": "Updated comment"
+}
+
+### Delete Comment (paste real id)
+DELETE http://localhost:3000/comment/PASTE_COMMENT_ID_HERE
+Authorization: Bearer {{ACCESS_TOKEN}}
+
+### Register
+POST http://localhost:3000/auth/register
+Content-Type: application/json
+
+{
+  "username": "Simba1",
+  "email": "Simba1@example.com",
+  "password": "Password123!"
+}
+
+### Login
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "email": "Simba1@example.com",
+  "password": "Password123!"
+}
+
+### Refresh Token
+POST http://localhost:3000/auth/refresh
+Content-Type: application/json
+
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OTRkNzRjNDZkY2MxN2I3NDdjYWMwMmYiLCJpYXQiOjE3NjY2ODM4NDQsImV4cCI6MTc2NzI4ODY0NH0.0w2TddH2p6qDU2p0URo5iw3-scExgY2R1otP_jfWcLw"
+}
+
+### Logout
+POST http://localhost:3000/auth/logout
+Content-Type: application/json
+Authorization: Bearer {{ACCESS_TOKEN}}
+
